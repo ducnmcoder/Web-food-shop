@@ -767,12 +767,14 @@
     loginButton.addEventListener("click", function () {
         const email = document.getElementById("loginEmail").value.trim();
         const password = document.getElementById("loginPassword").value.trim();
-
-        if (email === "" || password === "") {
-            loginMessage.textContent = "Please fill in all required fields.";
+        if (email === "" && password === "") {
+            loginMessage.textContent = "Please fill in all the information.";
             loginMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            loginMessage.textContent = "?? Please include an @ symbol in your email.";
+            loginMessage.textContent = "Please include an @ symbol in your email.";
+            loginMessage.style.color = "red";
+        } else if (email === "" || password === "") {
+            loginMessage.textContent = "Please fill in all required fields.";
             loginMessage.style.color = "red";
         } else {
             loginMessage.textContent = "Login successful!";
@@ -785,12 +787,14 @@
         const name = document.getElementById("registerName").value.trim();
         const email = document.getElementById("registerEmail").value.trim();
         const password = document.getElementById("registerPassword").value.trim();
-
-        if (name === "" || email === "" || password === "") {
-            registerMessage.textContent = "Please fill in all required fields.";
+        if (name === "" && email === "" && password === "") {
+            registerMessage.textContent = "Please fill in all the information.";
             registerMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            registerMessage.textContent = "?? Please include an @ symbol in your email.";
+            registerMessage.textContent = "Please include an @ symbol in your email.";
+            registerMessage.style.color = "red";
+        } else if (name === "" || email === "" || password === "") {
+            registerMessage.textContent = "Please fill in all required fields.";
             registerMessage.style.color = "red";
         } else {
             registerMessage.textContent = "Registration successful!";
