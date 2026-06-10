@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -199,15 +199,15 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Trang chủ</a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#foods">Danh sách thực phẩm</a>
+                    <a class="nav-link" href="#foods">List Foods</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#blog">Bài đăng</a>
+                    <a class="nav-link" href="#blog">Blog</a>
                 </li>
 
                 <li class="nav-item">
@@ -217,15 +217,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Cart.html" style="color: var(--secondary-color);"><i class="bi bi-cart3"></i> Cart <span id="cartCount" class="badge bg-danger rounded-pill">0</span></a>
+                </li>
             </ul>
 
             <div class="ms-lg-3">
                 <button class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Đăng nhập
+                    Login
                 </button>
 
                 <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#registerModal">
-                    Đăng ký
+                    Register
                 </button>
             </div>
         </div>
@@ -237,51 +240,50 @@
     <div class="container">
         <h1>Fresh Food For Your Family</h1>
         <p>
-            FoodShop cung cấp thực phẩm sạch, tươi ngon mỗi ngày với giá cả hợp lý,
-            giao hàng nhanh chóng và đảm bảo chất lượng.
+            FoodShop provides fresh, clean food every day with reasonable prices, fast delivery, and guaranteed quality.
         </p>
 
-        <a href="#foods" class="btn btn-main btn-lg mt-3">Xem thực phẩm</a>
-        <a href="#contact" class="btn btn-orange btn-lg mt-3 ms-2">Liên hệ ngay</a>
+        <a href="#foods" class="btn btn-main btn-lg mt-3">View Foods</a>
+        <a href="#contact" class="btn btn-orange btn-lg mt-3 ms-2">Contact Now</a>
     </div>
 </section>
 
 <!-- Categories -->
 <section class="py-5">
     <div class="container text-center">
-        <h2 class="section-title">Danh mục thực phẩm</h2>
-        <p class="section-subtitle">Các loại thực phẩm phổ biến tại FoodShop</p>
+        <h2 class="section-title">Food Categories</h2>
+        <p class="section-subtitle">Popular food categories at FoodShop</p>
 
         <div class="row g-4">
             <div class="col-md-3 col-sm-6">
                 <div class="card category-card p-4">
                     <i class="bi bi-basket category-icon"></i>
-                    <h5 class="mt-3">Rau củ</h5>
-                    <p>Rau sạch, củ quả tươi mỗi ngày.</p>
+                    <h5 class="mt-3">Vegetables</h5>
+                    <p>Clean vegetables, fresh daily.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
                 <div class="card category-card p-4">
                     <i class="bi bi-egg-fried category-icon"></i>
-                    <h5 class="mt-3">Thịt cá</h5>
-                    <p>Thịt, cá, hải sản tươi sống.</p>
+                    <h5 class="mt-3">Meat & Fish</h5>
+                    <p>Fresh meat, fish, and seafood.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
                 <div class="card category-card p-4">
                     <i class="bi bi-cup-hot category-icon"></i>
-                    <h5 class="mt-3">Đồ uống</h5>
-                    <p>Nước ép, sữa, trà và cà phê.</p>
+                    <h5 class="mt-3">Beverages</h5>
+                    <p>Juice, milk, tea, and coffee.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
                 <div class="card category-card p-4">
                     <i class="bi bi-cookie category-icon"></i>
-                    <h5 class="mt-3">Đồ ăn nhẹ</h5>
-                    <p>Bánh, snack, thực phẩm tiện lợi.</p>
+                    <h5 class="mt-3">Snacks</h5>
+                    <p>Cakes, snacks, and convenience foods.</p>
                 </div>
             </div>
         </div>
@@ -292,55 +294,55 @@
 <section class="py-5 bg-light" id="foods">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">Danh sách thực phẩm</h2>
-            <p class="section-subtitle">Một số sản phẩm nổi bật của cửa hàng</p>
+            <h2 class="section-title">Food List</h2>
+            <p class="section-subtitle">Some featured products of the store</p>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
                 <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Rau củ tươi" />
+                    <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh vegetables" />
                     <div class="card-body">
-                        <h5 class="card-title">Combo rau củ</h5>
-                        <p class="card-text">Rau củ sạch, phù hợp cho bữa ăn gia đình.</p>
-                        <p class="price">89.000đ</p>
-                        <button class="btn btn-main w-100">Thêm vào giỏ</button>
+                        <h5 class="card-title">Vegetable Combo</h5>
+                        <p class="card-text">Clean vegetables, suitable for family meals.</p>
+                        <p class="price">89,000 VND</p>
+                        <button class="btn btn-main w-100">Add to cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Thịt tươi" />
+                    <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh meat" />
                     <div class="card-body">
-                        <h5 class="card-title">Thịt bò tươi</h5>
-                        <p class="card-text">Thịt bò chất lượng, đóng gói an toàn.</p>
-                        <p class="price">159.000đ</p>
-                        <button class="btn btn-main w-100">Thêm vào giỏ</button>
+                        <h5 class="card-title">Fresh Beef</h5>
+                        <p class="card-text">Quality beef, safely packaged.</p>
+                        <p class="price">159,000 VND</p>
+                        <button class="btn btn-main w-100">Add to cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Trái cây" />
+                    <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fruits" />
                     <div class="card-body">
-                        <h5 class="card-title">Trái cây tươi</h5>
-                        <p class="card-text">Trái cây theo mùa, giàu vitamin.</p>
-                        <p class="price">99.000đ</p>
-                        <button class="btn btn-main w-100">Thêm vào giỏ</button>
+                        <h5 class="card-title">Fresh Fruits</h5>
+                        <p class="card-text">Seasonal fruits, rich in vitamins.</p>
+                        <p class="price">99,000 VND</p>
+                        <button class="btn btn-main w-100">Add to cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Đồ ăn nhanh" />
+                    <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fast food" />
                     <div class="card-body">
-                        <h5 class="card-title">Burger gà</h5>
-                        <p class="card-text">Món ăn tiện lợi, phù hợp bữa trưa nhanh.</p>
-                        <p class="price">49.000đ</p>
-                        <button class="btn btn-main w-100">Thêm vào giỏ</button>
+                        <h5 class="card-title">Chicken Burger</h5>
+                        <p class="card-text">Convenient food, suitable for a quick lunch.</p>
+                        <p class="price">49,000 VND</p>
+                        <button class="btn btn-main w-100">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -352,46 +354,46 @@
 <section class="py-5" id="blog">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">Bài đăng mới nhất</h2>
-            <p class="section-subtitle">Mẹo chọn thực phẩm và chăm sóc sức khỏe</p>
+            <h2 class="section-title">Latest Posts</h2>
+            <p class="section-subtitle">Tips on choosing food and health care</p>
         </div>
 
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card blog-card">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Rau sạch" />
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Clean vegetables" />
                     <div class="card-body">
-                        <h5 class="card-title">Cách chọn rau củ sạch</h5>
+                        <h5 class="card-title">How to choose clean vegetables</h5>
                         <p class="card-text">
-                            Một số mẹo đơn giản giúp bạn chọn rau củ tươi ngon và an toàn.
+                            Some simple tips to help you choose fresh and safe vegetables.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Đọc thêm</a>
+                        <a href="Blog.html" class="btn btn-outline-success">Read more</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card blog-card">
-                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Bữa ăn healthy" />
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Healthy meal" />
                     <div class="card-body">
-                        <h5 class="card-title">Gợi ý thực đơn healthy</h5>
+                        <h5 class="card-title">Healthy menu suggestions</h5>
                         <p class="card-text">
-                            Thực đơn đơn giản, dễ làm, phù hợp cho người bận rộn.
+                            Simple, easy-to-make menus, suitable for busy people.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Đọc thêm</a>
+                        <a href="Blog.html" class="btn btn-outline-success">Read more</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card blog-card">
-                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Bảo quản thực phẩm" />
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Food preservation" />
                     <div class="card-body">
-                        <h5 class="card-title">Bảo quản thực phẩm đúng cách</h5>
+                        <h5 class="card-title">Proper food preservation</h5>
                         <p class="card-text">
-                            Cách giữ thực phẩm tươi lâu hơn trong tủ lạnh và căn bếp.
+                            How to keep food fresh longer in the fridge and kitchen.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Đọc thêm</a>
+                        <a href="Blog.html" class="btn btn-outline-success">Read more</a>
                     </div>
                 </div>
             </div>
@@ -414,19 +416,17 @@
             <div class="col-md-6">
                 <h2 class="section-title">About Us</h2>
                 <p>
-                    FoodShop là cửa hàng thực phẩm trực tuyến chuyên cung cấp các sản phẩm
-                    tươi sạch, an toàn và tiện lợi cho mọi gia đình.
+                    FoodShop is an online food store specializing in providing fresh, safe, and convenient products for every family.
                 </p>
                 <p>
-                    Chúng tôi luôn hướng đến việc mang lại trải nghiệm mua sắm nhanh chóng,
-                    giá cả hợp lý và chất lượng sản phẩm tốt nhất.
+                    We always aim to bring a fast shopping experience, reasonable prices, and the best product quality.
                 </p>
 
                 <ul class="list-unstyled">
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Thực phẩm tươi mỗi ngày</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Giao hàng nhanh chóng</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Giá cả hợp lý</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Dịch vụ thân thiện</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Fresh food every day</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Fast delivery</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Reasonable prices</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Friendly service</li>
                 </ul>
             </div>
         </div>
@@ -438,41 +438,41 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Liên hệ với FoodShop để được hỗ trợ</p>
+            <p class="section-subtitle">Contact FoodShop for support</p>
         </div>
 
         <div class="row g-4">
             <div class="col-md-5">
                 <div class="contact-box h-100">
-                    <h4>Thông tin liên hệ</h4>
-                    <p><i class="bi bi-geo-alt-fill text-success"></i> 123 Nguyễn Trãi, Quận 1, TP.HCM</p>
+                    <h4>Contact Information</h4>
+                    <p><i class="bi bi-geo-alt-fill text-success"></i> 123 Nguyen Trai, District 1, HCMC</p>
                     <p><i class="bi bi-telephone-fill text-success"></i> 0909 123 456</p>
                     <p><i class="bi bi-envelope-fill text-success"></i> foodshop@gmail.com</p>
-                    <p><i class="bi bi-clock-fill text-success"></i> 7:00 - 21:00, Thứ 2 - Chủ nhật</p>
+                    <p><i class="bi bi-clock-fill text-success"></i> 7:00 - 21:00, Monday - Sunday</p>
                 </div>
             </div>
 
             <div class="col-md-7">
                 <div class="contact-box">
-                    <h4>Gửi tin nhắn</h4>
+                    <h4>Send a Message</h4>
 
                     <form id="contactForm">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Họ và tên</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nhập họ tên" />
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter full name" />
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Nhập email" />
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" />
                         </div>
 
                         <div class="mb-3">
-                            <label for="message" class="form-label">Nội dung</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Nhập nội dung"></textarea>
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-main">Gửi liên hệ</button>
+                        <button type="submit" class="btn btn-main">Send Message</button>
                         <p id="formMessage" class="mt-3 fw-bold"></p>
                     </form>
                 </div>
@@ -486,7 +486,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Đăng nhập</h5>
+                <h5 class="modal-title">Login</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
 
@@ -494,15 +494,15 @@
                 <form>
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Nhập email" />
+                        <input type="email" class="form-control" placeholder="Enter email" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter password" />
                     </div>
 
-                    <button type="button" class="btn btn-main w-100">Đăng nhập</button>
+                    <button type="button" class="btn btn-main w-100">Login</button>
                 </form>
             </div>
         </div>
@@ -514,28 +514,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Đăng ký tài khoản</h5>
+                <h5 class="modal-title">Register an Account</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
 
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control" placeholder="Nhập họ tên" />
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter full name" />
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Nhập email" />
+                        <input type="email" class="form-control" placeholder="Enter email" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Tạo mật khẩu" />
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Create password" />
                     </div>
 
-                    <button type="button" class="btn btn-main w-100">Đăng ký</button>
+                    <button type="button" class="btn btn-main w-100">Register</button>
                 </form>
             </div>
         </div>
@@ -549,24 +549,23 @@
             <div class="col-md-4">
                 <h4>FoodShop</h4>
                 <p>
-                    Cửa hàng thực phẩm trực tuyến mang đến sản phẩm tươi ngon,
-                    an toàn và tiện lợi cho mọi gia đình.
+                    Online food store providing fresh, safe, and convenient products for every family.
                 </p>
             </div>
 
             <div class="col-md-4">
-                <h5>Chỉ mục</h5>
+                <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#home">Trang chủ</a></li>
-                    <li><a href="#foods">Danh sách thực phẩm</a></li>
-                    <li><a href="#blog">Bài đăng</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#foods">List Foods</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
 
             <div class="col-md-4">
-                <h5>Theo dõi chúng tôi</h5>
+                <h5>Follow Us</h5>
                 <p>
                     <i class="bi bi-facebook me-2"></i>
                     <i class="bi bi-instagram me-2"></i>
@@ -600,13 +599,51 @@
         const message = document.getElementById("message").value.trim();
 
         if (name === "" || email === "" || message === "") {
-            formMessage.textContent = "Vui lòng nhập đầy đủ thông tin!";
+            formMessage.textContent = "Please enter all required information!";
             formMessage.style.color = "red";
         } else {
-            formMessage.textContent = "Gửi liên hệ thành công!";
+            formMessage.textContent = "Message sent successfully!";
             formMessage.style.color = "green";
             contactForm.reset();
         }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const addToCartBtns = document.querySelectorAll('.food-card .btn-main');
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.food-card');
+                const name = card.querySelector('.card-title').textContent;
+                const priceText = card.querySelector('.price').textContent;
+                const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+                const image = card.querySelector('img').src;
+
+                const product = { name, price, image, quantity: 1 };
+                
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const existingProduct = cart.find(item => item.name === name);
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push(product);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                // Show toast or alert
+                alert("Added " + name + " to cart!");
+            });
+        });
+
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountEl = document.getElementById('cartCount');
+            if(cartCountEl) {
+                cartCountEl.textContent = count;
+            }
+        }
+        updateCartCount();
     });
 </script>
 </body>
