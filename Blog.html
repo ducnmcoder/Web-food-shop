@@ -69,7 +69,6 @@
                 <li class="nav-item"><a class="nav-link active" href="Blog.html">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="Homepage.html#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="Homepage.html#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="Cart.html" style="color: var(--secondary-color);"><i class="bi bi-cart3"></i> Cart <span id="cartCount" class="badge bg-danger rounded-pill">0</span></a></li>
             </ul>
         </div>
     </div>
@@ -223,17 +222,7 @@
 
 <!-- Custom JavaScript -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let count = cart.reduce((total, item) => total + item.quantity, 0);
-            const cartCountEl = document.getElementById('cartCount');
-            if(cartCountEl) {
-                cartCountEl.textContent = count;
-            }
-        }
-        updateCartCount();
-    });
+
 
     function showArticle(btn) {
         const card = btn.closest('.post-card');
