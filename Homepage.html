@@ -642,6 +642,9 @@
         if (name === "" || email === "" || password === "") {
             registerMessage.textContent = "Please fill in all required fields.";
             registerMessage.style.color = "red";
+        } else if (!email.includes("@")) {
+            registerMessage.textContent = "Please include an @ symbol in your email.";
+            registerMessage.style.color = "red";
         } else {
             registerMessage.textContent = "Registration successful!";
             registerMessage.style.color = "green";
