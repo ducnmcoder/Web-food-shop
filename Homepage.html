@@ -131,6 +131,25 @@
             object-fit: cover;
         }
 
+        .food-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-card .card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .food-card .price {
+            margin-top: auto;
+        }
+
+        .food-card .add-cart-btn {
+            margin-top: 8px;
+        }
+
         .price {
             color: var(--secondary-color);
             font-weight: bold;
@@ -178,6 +197,15 @@
                 font-size: 2.2rem;
             }
         }
+
+        .category-card {
+            cursor: pointer;
+        }
+
+        .category-card.active {
+            border: 2px solid var(--main-color);
+            background-color: #f0fff4;
+        }
     </style>
 </head>
 
@@ -201,19 +229,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#home">Home</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#foods">Food List</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#blog">Blog</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About Us</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
@@ -250,38 +274,38 @@
 <section class="py-5">
     <div class="container text-center">
         <h2 class="section-title">Food Categories</h2>
-        <p class="section-subtitle">Popular food categories at FoodShop</p>
+        <p class="section-subtitle">Popular food categories available at FoodShop</p>
 
         <div class="row g-4">
             <div class="col-md-3 col-sm-6">
-                <div class="card category-card p-4">
+                <div class="card category-card p-4 active" data-category="vegetables">
                     <i class="bi bi-basket category-icon"></i>
                     <h5 class="mt-3">Vegetables</h5>
-                    <p>Fresh and clean vegetables every day.</p>
+                    <p>Fresh vegetables and clean farm products.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <div class="card category-card p-4">
+                <div class="card category-card p-4" data-category="meat">
                     <i class="bi bi-egg-fried category-icon"></i>
-                    <h5 class="mt-3">Meat & Fish</h5>
-                    <p>Fresh meat, fish, and seafood.</p>
+                    <h5 class="mt-3">Meat & Seafood</h5>
+                    <p>Fresh meat, fish, and seafood for daily meals.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <div class="card category-card p-4">
+                <div class="card category-card p-4" data-category="drinks">
                     <i class="bi bi-cup-hot category-icon"></i>
-                    <h5 class="mt-3">Beverages</h5>
-                    <p>Juices, milk, tea, and coffee.</p>
+                    <h5 class="mt-3">Drinks</h5>
+                    <p>Juice, milk, tea, coffee, and healthy drinks.</p>
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <div class="card category-card p-4">
+                <div class="card category-card p-4" data-category="snacks">
                     <i class="bi bi-cookie category-icon"></i>
                     <h5 class="mt-3">Snacks</h5>
-                    <p>Cakes, snacks, and quick bites.</p>
+                    <p>Snacks, cakes, and convenient food products.</p>
                 </div>
             </div>
         </div>
@@ -292,58 +316,12 @@
 <section class="py-5 bg-light" id="foods">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">Food List</h2>
-            <p class="section-subtitle">Featured products from our store</p>
+            <h2 id="foodListTitle" class="section-title">Food List</h2>
+            <p id="foodListSubtitle" class="section-subtitle">Featured products from our store</p>
         </div>
 
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh vegetables" />
-                    <div class="card-body">
-                        <h5 class="card-title">Vegetable Combo</h5>
-                        <p class="card-text">Fresh vegetables perfect for family meals.</p>
-                        <p class="price">89.000đ</p>
-                        <button class="btn btn-main w-100">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh beef" />
-                    <div class="card-body">
-                        <h5 class="card-title">Fresh Beef</h5>
-                        <p class="card-text">Premium beef with safe packaging.</p>
-                        <p class="price">159.000đ</p>
-                        <button class="btn btn-main w-100">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh fruits" />
-                    <div class="card-body">
-                        <h5 class="card-title">Fresh Fruits</h5>
-                        <p class="card-text">Seasonal fruits rich in vitamins.</p>
-                        <p class="price">99.000đ</p>
-                        <button class="btn btn-main w-100">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card food-card">
-                    <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Quick meal" />
-                    <div class="card-body">
-                        <h5 class="card-title">Chicken Burger</h5>
-                        <p class="card-text">A convenient meal for a quick lunch.</p>
-                        <p class="price">49.000đ</p>
-                        <button class="btn btn-main w-100">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
+        <div class="row g-4" id="foodItems">
+            <!-- Food items will be displayed by JavaScript -->
         </div>
     </div>
 </section>
@@ -353,19 +331,28 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-title">Latest Blog Posts</h2>
-            <p class="section-subtitle">Tips for choosing food and staying healthy</p>
+            <p class="section-subtitle">Food tips, healthy eating, and shopping guides</p>
         </div>
 
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card blog-card">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Fresh vegetables" />
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Clean vegetables" />
                     <div class="card-body">
                         <h5 class="card-title">How to Choose Fresh Vegetables</h5>
                         <p class="card-text">
-                            Simple tips to help you choose fresh and safe vegetables.
+                            Simple tips to help you choose fresh, clean, and safe vegetables.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Read More</a>
+                        <button
+                                class="btn btn-outline-success read-more-btn"
+                                data-title="How to Choose Fresh Vegetables"
+                                data-image="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                                data-content="When choosing fresh vegetables, you should look for bright colors, firm texture, and natural smell. Avoid vegetables with dark spots, soft parts, or a strange odor. Fresh vegetables should be washed carefully and stored in a cool place to keep them safe and nutritious."
+                                data-bs-toggle="modal"
+                                data-bs-target="#blogModal"
+                        >
+                            Read More
+                        </button>
                     </div>
                 </div>
             </div>
@@ -376,9 +363,18 @@
                     <div class="card-body">
                         <h5 class="card-title">Healthy Meal Ideas</h5>
                         <p class="card-text">
-                            Easy recipes for busy people who want a healthy diet.
+                            Easy and balanced meal ideas for students, families, and busy people.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Read More</a>
+                        <button
+                                class="btn btn-outline-success read-more-btn"
+                                data-title="Healthy Meal Ideas"
+                                data-image="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80"
+                                data-content="A healthy meal should include vegetables, protein, carbohydrates, and healthy fats. For example, you can prepare rice with grilled chicken, boiled vegetables, and fruit juice. This kind of meal is simple, balanced, and suitable for busy people."
+                                data-bs-toggle="modal"
+                                data-bs-target="#blogModal"
+                        >
+                            Read More
+                        </button>
                     </div>
                 </div>
             </div>
@@ -389,9 +385,18 @@
                     <div class="card-body">
                         <h5 class="card-title">How to Store Food Properly</h5>
                         <p class="card-text">
-                            Tips for keeping food fresher longer in the fridge and kitchen.
+                            Learn how to keep your food fresh longer and reduce food waste.
                         </p>
-                        <a href="#" class="btn btn-outline-success">Read More</a>
+                        <button
+                                class="btn btn-outline-success read-more-btn"
+                                data-title="How to Store Food Properly"
+                                data-image="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80"
+                                data-content="Proper food storage helps keep food fresh and safe. Vegetables should be kept in the refrigerator, meat and seafood should be stored in the freezer, and dry foods should be placed in sealed containers. This helps reduce waste and maintain food quality."
+                                data-bs-toggle="modal"
+                                data-bs-target="#blogModal"
+                        >
+                            Read More
+                        </button>
                     </div>
                 </div>
             </div>
@@ -542,6 +547,27 @@
     </div>
 </div>
 
+<!-- Blog Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blogModalTitle">Blog Title</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img id="blogModalImage" src="" alt="Blog image" class="img-fluid rounded mb-3" />
+                <p id="blogModalContent"></p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-main" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer>
     <div class="container">
@@ -578,7 +604,7 @@
         <hr />
 
         <p class="text-center mb-0">
-            © 2026 FoodShop. All rights reserved.
+            � 2026 FoodShop. All rights reserved.
         </p>
     </div>
 </footer>
@@ -587,6 +613,221 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Custom JavaScript -->
+<script>
+    const foodData = {
+        vegetables: {
+            title: "Vegetables",
+            subtitle: "Fresh vegetables and clean farm products.",
+            items: [
+                {
+                    name: "Vegetable Combo",
+                    desc: "A healthy mix of fresh vegetables for family meals.",
+                    price: "$3.50",
+                    image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80",
+                    alt: "Vegetable Combo"
+                },
+                {
+                    name: "Fresh Broccoli",
+                    desc: "Green broccoli rich in vitamins and fiber.",
+                    price: "$2.80",
+                    image: "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Broccoli"
+                },
+                {
+                    name: "Organic Carrots",
+                    desc: "Sweet and crunchy carrots for healthy cooking.",
+                    price: "$2.20",
+                    image: "https://images.unsplash.com/photo-1445282768818-728615cc910a?auto=format&fit=crop&w=800&q=80",
+                    alt: "Organic Carrots"
+                },
+                {
+                    name: "Fresh Tomatoes",
+                    desc: "Juicy tomatoes for salads, soups, and sauces.",
+                    price: "$2.50",
+                    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Tomatoes"
+                }
+            ]
+        },
+        meat: {
+            title: "Meat & Seafood",
+            subtitle: "Fresh meat, fish, and seafood for daily meals.",
+            items: [
+                {
+                    name: "Fresh Beef",
+                    desc: "High-quality beef, safely packed and delivered.",
+                    price: "$6.50",
+                    image: "https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Beef"
+                },
+                {
+                    name: "Chicken Breast",
+                    desc: "Fresh chicken breast, perfect for healthy dishes.",
+                    price: "$4.80",
+                    image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=800&q=80",
+                    alt: "Chicken Breast"
+                },
+                {
+                    name: "Fresh Salmon",
+                    desc: "Premium salmon with rich flavor and nutrients.",
+                    price: "$8.90",
+                    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Salmon"
+                },
+                {
+                    name: "Fresh Shrimp",
+                    desc: "Clean and fresh shrimp for seafood dishes.",
+                    price: "$7.20",
+                    image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Shrimp"
+                }
+            ]
+        },
+        drinks: {
+            title: "Drinks",
+            subtitle: "Juice, milk, tea, coffee, and healthy drinks.",
+            items: [
+                {
+                    name: "Orange Juice",
+                    desc: "Fresh orange juice with natural vitamin C.",
+                    price: "$1.80",
+                    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+                    alt: "Orange Juice"
+                },
+                {
+                    name: "Fresh Milk",
+                    desc: "Pure fresh milk for daily nutrition.",
+                    price: "$2.10",
+                    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80",
+                    alt: "Fresh Milk"
+                },
+                {
+                    name: "Iced Coffee",
+                    desc: "Refreshing iced coffee for busy mornings.",
+                    price: "$2.50",
+                    image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
+                    alt: "Iced Coffee"
+                },
+                {
+                    name: "Green Tea",
+                    desc: "Healthy green tea with a fresh taste.",
+                    price: "$1.60",
+                    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+                    alt: "Green Tea"
+                }
+            ]
+        },
+        snacks: {
+            title: "Snacks",
+            subtitle: "Snacks, cakes, and convenient food products.",
+            items: [
+                {
+                    name: "Chicken Burger",
+                    desc: "A tasty and convenient meal for busy days.",
+                    price: "$2.20",
+                    image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80",
+                    alt: "Chicken Burger"
+                },
+                {
+                    name: "French Fries",
+                    desc: "Crispy fries served hot and delicious.",
+                    price: "$1.90",
+                    image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=800&q=80",
+                    alt: "French Fries"
+                },
+                {
+                    name: "Chocolate Cake",
+                    desc: "Soft and sweet chocolate cake for dessert.",
+                    price: "$3.20",
+                    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+                    alt: "Chocolate Cake"
+                },
+                {
+                    name: "Potato Chips",
+                    desc: "Crispy potato chips for light snacks.",
+                    price: "$1.50",
+                    image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=800&q=80",
+                    alt: "Potato Chips"
+                }
+            ]
+        }
+    };
+
+    const categoryCards = document.querySelectorAll(".category-card");
+    const foodItems = document.getElementById("foodItems");
+    const foodListTitle = document.getElementById("foodListTitle");
+    const foodListSubtitle = document.getElementById("foodListSubtitle");
+    const foodSection = document.getElementById("foods");
+
+    function displayFoodList(category) {
+        const selectedCategory = foodData[category];
+
+        foodListTitle.textContent = selectedCategory.title;
+        foodListSubtitle.textContent = selectedCategory.subtitle;
+
+        foodItems.innerHTML = "";
+
+        selectedCategory.items.forEach(function (food) {
+            foodItems.innerHTML += `
+                <div class="col-lg-3 col-md-6">
+                    <div class="card food-card">
+                        <img src="${food.image}" class="card-img-top" alt="${food.alt}" />
+                        <div class="card-body">
+                            <h5 class="card-title">${food.name}</h5>
+                            <p class="card-text">${food.desc}</p>
+                            <p class="price">${food.price}</p>
+                            <button class="btn btn-main w-100 add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        const addCartButtons = document.querySelectorAll(".add-cart-btn");
+        addCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                alert("This product has been added to your cart!");
+            });
+        });
+    }
+
+    categoryCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+            const category = this.getAttribute("data-category");
+
+            categoryCards.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+            displayFoodList(category);
+            foodSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+    displayFoodList("vegetables");
+
+    const readMoreButtons = document.querySelectorAll(".read-more-btn");
+    const blogModalTitle = document.getElementById("blogModalTitle");
+    const blogModalImage = document.getElementById("blogModalImage");
+    const blogModalContent = document.getElementById("blogModalContent");
+
+    readMoreButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const title = this.getAttribute("data-title");
+            const image = this.getAttribute("data-image");
+            const content = this.getAttribute("data-content");
+
+            blogModalTitle.textContent = title;
+            blogModalImage.src = image;
+            blogModalImage.alt = title;
+            blogModalContent.textContent = content;
+        });
+    });
+</script>
+
 <script>
     const contactForm = document.getElementById("contactForm");
     const formMessage = document.getElementById("formMessage");
@@ -599,7 +840,6 @@
 
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
-
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
@@ -622,7 +862,7 @@
             loginMessage.textContent = "Please fill in all required fields.";
             loginMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            loginMessage.textContent = "⚠️ Please include an @ symbol in your email.";
+            loginMessage.textContent = "?? Please include an @ symbol in your email.";
             loginMessage.style.color = "red";
         } else {
             loginMessage.textContent = "Login successful!";
@@ -640,7 +880,7 @@
             registerMessage.textContent = "Please fill in all required fields.";
             registerMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            registerMessage.textContent = "⚠️ Please include an @ symbol in your email.";
+            registerMessage.textContent = "?? Please include an @ symbol in your email.";
             registerMessage.style.color = "red";
         } else {
             registerMessage.textContent = "Registration successful!";
@@ -649,5 +889,6 @@
         }
     });
 </script>
+
 </body>
 </html>
