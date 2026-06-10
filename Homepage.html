@@ -740,7 +740,6 @@
 
 <script>
     const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
     const loginForm = document.getElementById("loginForm");
     const loginButton = document.getElementById("loginButton");
     const loginMessage = document.getElementById("loginMessage");
@@ -748,31 +747,40 @@
     const registerButton = document.getElementById("registerButton");
     const registerMessage = document.getElementById("registerMessage");
 
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+    if (contactForm) {
+        const formMessage = document.getElementById("formMessage");
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-        if (name === "" || email === "" || message === "") {
-            formMessage.textContent = "Please fill in all required fields.";
-            formMessage.style.color = "red";
-        } else {
-            formMessage.textContent = "Message sent successfully!";
-            formMessage.style.color = "green";
-            contactForm.reset();
-        }
-    });
+            if (name === "" || email === "" || message === "") {
+                if (formMessage) {
+                    formMessage.textContent = "Please fill in all required fields.";
+                    formMessage.style.color = "red";
+                }
+            } else {
+                if (formMessage) {
+                    formMessage.textContent = "Message sent successfully!";
+                    formMessage.style.color = "green";
+                }
+                contactForm.reset();
+            }
+        });
+    }
 
     loginButton.addEventListener("click", function () {
         const email = document.getElementById("loginEmail").value.trim();
         const password = document.getElementById("loginPassword").value.trim();
-
-        if (email === "" || password === "") {
-            loginMessage.textContent = "Please fill in all required fields.";
+        if (email === "" && password === "") {
+            loginMessage.textContent = "Please fill in all the information.";
             loginMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            loginMessage.textContent = "?? Please include an @ symbol in your email.";
+            loginMessage.textContent = "Please include an @ symbol in your email.";
+            loginMessage.style.color = "red";
+        } else if (email === "" || password === "") {
+            loginMessage.textContent = "Please fill in all required fields.";
             loginMessage.style.color = "red";
         } else {
             loginMessage.textContent = "Login successful!";
@@ -785,12 +793,14 @@
         const name = document.getElementById("registerName").value.trim();
         const email = document.getElementById("registerEmail").value.trim();
         const password = document.getElementById("registerPassword").value.trim();
-
-        if (name === "" || email === "" || password === "") {
-            registerMessage.textContent = "Please fill in all required fields.";
+        if (name === "" && email === "" && password === "") {
+            registerMessage.textContent = "Please fill in all the information.";
             registerMessage.style.color = "red";
         } else if (!email.includes("@")) {
-            registerMessage.textContent = "?? Please include an @ symbol in your email.";
+            registerMessage.textContent = "Please include an @ symbol in your email.";
+            registerMessage.style.color = "red";
+        } else if (name === "" || email === "" || password === "") {
+            registerMessage.textContent = "Please fill in all required fields.";
             registerMessage.style.color = "red";
         } else {
             registerMessage.textContent = "Registration successful!";
