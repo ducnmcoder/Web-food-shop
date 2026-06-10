@@ -212,7 +212,7 @@
                                 <span class="fw-bold">${item.name}</span>
                             </div>
                         </td>
-                        <td class="py-3 align-middle">${item.price.toLocaleString('en-US')} VND</td>
+                        <td class="py-3 align-middle">$${item.price.toLocaleString('en-US')}</td>
                         <td class="py-3 align-middle">
                             <div class="d-flex align-items-center" style="width: 120px;">
                                 <button class="btn btn-sm btn-outline-secondary btn-decrease" data-index="${index}">-</button>
@@ -220,7 +220,7 @@
                                 <button class="btn btn-sm btn-outline-secondary btn-increase" data-index="${index}">+</button>
                             </div>
                         </td>
-                        <td class="py-3 align-middle fw-bold" style="color: var(--secondary-color);">${itemTotal.toLocaleString('en-US')} VND</td>
+                        <td class="py-3 align-middle fw-bold" style="color: var(--secondary-color);">$${itemTotal.toLocaleString('en-US')}</td>
                         <td class="pe-4 py-3 align-middle text-end">
                             <button class="btn btn-sm btn-outline-danger btn-remove" data-index="${index}"><i class="bi bi-trash"></i></button>
                         </td>
@@ -245,7 +245,7 @@
                             <h5 class="fw-bold mb-4 border-bottom pb-3">Order Summary</h5>
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="text-muted">Subtotal:</span>
-                                <span class="fw-bold">${total.toLocaleString('en-US')} VND</span>
+                                <span class="fw-bold">$${total.toLocaleString('en-US')}</span>
                             </div>
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="text-muted">Shipping:</span>
@@ -254,7 +254,7 @@
                             <hr class="my-4">
                             <div class="d-flex justify-content-between mb-4">
                                 <span class="fw-bold fs-5">Total:</span>
-                                <span class="fw-bold fs-4" style="color: var(--secondary-color);">${total.toLocaleString('en-US')} VND</span>
+                                <span class="fw-bold fs-4" style="color: var(--secondary-color);">$${total.toLocaleString('en-US')}</span>
                             </div>
                             <button class="btn btn-main w-100 btn-lg" onclick="alert('Checkout functionality is under development!')">Proceed to Checkout</button>
                         </div>
