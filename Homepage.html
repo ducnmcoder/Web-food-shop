@@ -740,7 +740,6 @@
 
 <script>
     const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
     const loginForm = document.getElementById("loginForm");
     const loginButton = document.getElementById("loginButton");
     const loginMessage = document.getElementById("loginMessage");
@@ -748,21 +747,28 @@
     const registerButton = document.getElementById("registerButton");
     const registerMessage = document.getElementById("registerMessage");
 
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+    if (contactForm) {
+        const formMessage = document.getElementById("formMessage");
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-        if (name === "" || email === "" || message === "") {
-            formMessage.textContent = "Please fill in all required fields.";
-            formMessage.style.color = "red";
-        } else {
-            formMessage.textContent = "Message sent successfully!";
-            formMessage.style.color = "green";
-            contactForm.reset();
-        }
-    });
+            if (name === "" || email === "" || message === "") {
+                if (formMessage) {
+                    formMessage.textContent = "Please fill in all required fields.";
+                    formMessage.style.color = "red";
+                }
+            } else {
+                if (formMessage) {
+                    formMessage.textContent = "Message sent successfully!";
+                    formMessage.style.color = "green";
+                }
+                contactForm.reset();
+            }
+        });
+    }
 
     loginButton.addEventListener("click", function () {
         const email = document.getElementById("loginEmail").value.trim();
