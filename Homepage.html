@@ -191,18 +191,18 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-white sticky-top">
+<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="#">FoodShop</a>
+        <a class="navbar-brand fw-bold text-success" href="#">FoodShop</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="Homepage.html">Home</a>
+                    <a class="nav-link active text-success fw-semibold" href="Homepage.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products.html">Food List</a>
@@ -218,19 +218,19 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="cartDropdown" role="button" data-bs-toggle="dropdown">
-                        Cart <span id="cartCount" class="badge bg-secondary">0</span>
+                        Cart <span id="cartCount" class="badge bg-danger">0</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width: 320px; max-height: 400px; overflow-y: auto;" id="cartItems">
+                    <ul class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 320px; max-height: 400px; overflow-y: auto;" id="cartItems">
                         <li id="emptyCart" class="text-center text-muted">Your cart is empty.</li>
                     </ul>
                 </li>
             </ul>
 
-            <div class="ms-lg-3">
-                <button class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <div class="ms-lg-3 mt-2 mt-lg-0">
+                <button class="btn btn-outline-success me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
                     Login
                 </button>
-                <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <button class="btn btn-main btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
                     Register
                 </button>
             </div>
@@ -590,6 +590,12 @@
             cartItems.appendChild(li);
         });
 
+        // Add View Cart / Checkout button
+        const checkoutLi = document.createElement("li");
+        checkoutLi.className = "mt-3 text-center";
+        checkoutLi.innerHTML = `<a href="cart.html" class="btn btn-success w-100">View Cart & Checkout</a>`;
+        cartItems.appendChild(checkoutLi);
+
         cartCount.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
         sessionStorage.setItem('cart', JSON.stringify(cart));
 
@@ -700,6 +706,12 @@
                 return;
             }
 
+            if (!email.includes("@")) {
+                loginMessage.className = "mt-3 fw-bold text-danger";
+                loginMessage.textContent = "Please enter a valid email containing '@'.";
+                return;
+            }
+
             loginMessage.className = "mt-3 fw-bold text-success";
             loginMessage.textContent = "Login successful! Welcome back.";
 
@@ -721,6 +733,12 @@
             if (!name || !email || !pass) {
                 registerMessage.className = "mt-3 fw-bold text-danger";
                 registerMessage.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            if (!email.includes("@")) {
+                registerMessage.className = "mt-3 fw-bold text-danger";
+                registerMessage.textContent = "Please enter a valid email containing '@'.";
                 return;
             }
 
