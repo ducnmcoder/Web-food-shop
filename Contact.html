@@ -126,7 +126,10 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold text-success" href="#">FoodShop</a>
+        <a class="navbar-brand d-flex align-items-center" href="Homepage.html">
+            <img src="image/LogoPage.png" alt="FoodShop Logo" height="40">
+            <span class="text-success ms-2 fw-bold fs-4">FoodShop</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -146,7 +149,7 @@
                     </ul>
                 </li>
             </ul>
-            <div class="ms-lg-3 mt-2 mt-lg-0">
+            <div class="ms-lg-3 mt-2 mt-lg-0" id="authSection">
                 <button class="btn btn-outline-success me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
                 <button class="btn btn-main btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
             </div>
@@ -335,33 +338,109 @@
     }
     updateCartUI();
 
+    // Update Auth UI
+    function updateAuthUI() {
+        const authSection = document.getElementById("authSection");
+        if (!authSection) return;
+        const user = JSON.parse(sessionStorage.getItem("user"));
+        if (user) {
+            authSection.innerHTML = `
+                <span class="fw-bold text-success me-3">Welcome, ${user.username}</span>
+                <button class="btn btn-outline-danger btn-sm" onclick="logout()">Logout</button>
+            `;
+        } else {
+            authSection.innerHTML = `
+                <button class="btn btn-outline-success me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button class="btn btn-main btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            `;
+        }
+    }
+
+    // Global Logout
+    window.logout = function() {
+        sessionStorage.removeItem("user");
+        updateAuthUI();
+    };
+
+    // Run on load
+    updateAuthUI();
+
     const loginModalObj = document.getElementById('loginModal') ? new bootstrap.Modal(document.getElementById('loginModal')) : null;
     const registerModalObj = document.getElementById('registerModal') ? new bootstrap.Modal(document.getElementById('registerModal')) : null;
 
     const loginBtn = document.getElementById("loginButton");
     if (loginBtn) {
-        loginBtn.addEventListener("click", function () {
+        loginBtn.addEventListener("click", async function () {
             const email = document.getElementById("loginEmail").value.trim();
             const pass = document.getElementById("loginPassword").value.trim();
             const msg = document.getElementById("loginMessage");
             if (!email || !pass) { msg.className = "mt-3 fw-bold text-danger"; msg.textContent = "Please fill in all fields."; return; }
-            if (!email.includes("@")) { msg.className = "mt-3 fw-bold text-danger"; msg.textContent = "Please enter a valid email containing '@'."; return; }
-            msg.className = "mt-3 fw-bold text-success"; msg.textContent = "Login successful! Welcome back.";
-            setTimeout(() => { if(loginModalObj) loginModalObj.hide(); document.getElementById("loginForm").reset(); msg.textContent = ""; }, 1200);
+            
+            try {
+                const response = await fetch("http://localhost:8080/api/auth/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: email, password: pass })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    msg.className = "mt-3 fw-bold text-success";
+                    msg.textContent = "Login successful!";
+                    // Lưu user vào sessionStorage
+                    sessionStorage.setItem("user", JSON.stringify(data));
+                    setTimeout(() => { 
+                        if(loginModalObj) loginModalObj.hide(); 
+                        document.getElementById("loginForm").reset(); 
+                        msg.textContent = ""; 
+                        if (data.role === 'OWNER') {
+                            window.location.href = 'Owner.html';
+                        } else {
+                            updateAuthUI(); 
+                        }
+                    }, 1200);
+                } else {
+                    msg.className = "mt-3 fw-bold text-danger";
+                    msg.textContent = data.message || "Invalid credentials.";
+                }
+            } catch (error) {
+                msg.className = "mt-3 fw-bold text-danger";
+                msg.textContent = "Error connecting to server.";
+            }
         });
     }
 
     const regBtn = document.getElementById("registerButton");
     if (regBtn) {
-        regBtn.addEventListener("click", function () {
+        regBtn.addEventListener("click", async function () {
             const name = document.getElementById("registerName").value.trim();
             const email = document.getElementById("registerEmail").value.trim();
             const pass = document.getElementById("registerPassword").value.trim();
             const msg = document.getElementById("registerMessage");
             if (!name || !email || !pass) { msg.className = "mt-3 fw-bold text-danger"; msg.textContent = "Please fill in all fields."; return; }
-            if (!email.includes("@")) { msg.className = "mt-3 fw-bold text-danger"; msg.textContent = "Please enter a valid email containing '@'."; return; }
-            msg.className = "mt-3 fw-bold text-success"; msg.textContent = "Registration successful!";
-            setTimeout(() => { if(registerModalObj) registerModalObj.hide(); document.getElementById("registerForm").reset(); msg.textContent = ""; }, 1200);
+            
+            try {
+                const response = await fetch("http://localhost:8080/api/auth/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username: name, email: email, password: pass })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    msg.className = "mt-3 fw-bold text-success";
+                    msg.textContent = "Registration successful!";
+                    setTimeout(() => { 
+                        if(registerModalObj) registerModalObj.hide(); 
+                        document.getElementById("registerForm").reset(); 
+                        msg.textContent = ""; 
+                    }, 1200);
+                } else {
+                    msg.className = "mt-3 fw-bold text-danger";
+                    msg.textContent = data.message || "Error registering user.";
+                }
+            } catch (error) {
+                msg.className = "mt-3 fw-bold text-danger";
+                msg.textContent = "Error connecting to server.";
+            }
         });
     }
 
